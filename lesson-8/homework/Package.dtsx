@@ -1,0 +1,942 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/15/2025 5:00:10 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MOUSE-LAPTOP"
+  DTS:CreatorName="MOUSE-LAPTOP\Aslbek Rakhmatov"
+  DTS:DTSID="{EBD4E598-AAEA-4717-800E-1641E21660B4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="16"
+  DTS:VersionGUID="{5BE2CFEE-BB00-4A38-8908-D612CEF1BD80}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{8E95AFCB-DC79-4F96-BD7F-70A365F85C76}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::destination_folder]+@[User::filename]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\SSIS_HMFiles\lesson-8\data1.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CustomerID"
+              DTS:DTSID="{589F28A0-B8C5-48EA-9621-7CD70F52B03F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Name"
+              DTS:DTSID="{F93D7022-3CF8-49A3-ABA1-8ABDB5F60CED}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{9B5B18A5-4B56-4E34-B92C-00CFD5C5B009}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\SSIS_HMFiles\lesson-8\error\error.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="302"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Flat File Source Error Output Column"
+              DTS:DTSID="{37C7F791-6DD0-4943-AB44-F3FA89C81BCB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorCode"
+              DTS:DTSID="{8D340A3C-1491-4A6D-A05D-AE174DDA7482}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ErrorColumn"
+              DTS:DTSID="{403962AA-56B3-47F4-A1E0-44BA3292C7A1}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MOUSE-LAPTOP.ssis_8]"
+      DTS:CreationName="OLEDB"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{FE9340AE-D0CA-499E-ABBA-96E5D329CF6B}"
+      DTS:ObjectName="MOUSE-LAPTOP.ssis_8">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MOUSE-LAPTOP;Initial Catalog=ssis_8;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{FE9340AE-D0CA-499E-ABBA-96E5D329CF6B}MOUSE-LAPTOP.ssis_8;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{B826F2EF-CD48-4E91-B426-B195B0E036B5}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="destination_folder">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\SSIS_HMFiles\lesson-8\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5A6393D0-075C-43D5-A5ED-C5054CA7CD99}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="filename">
+      <DTS:VariableValue
+        DTS:DataType="8">data1.txt</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{ECDCFB8A-0F80-4135-87A4-5CEDDD110C76}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="numeric_suffix">
+      <DTS:VariableValue
+        DTS:DataType="3">1</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\For Loop Container"
+      DTS:AssignExpression="@numeric_suffix = @numeric_suffix+1"
+      DTS:CreationName="STOCK:FORLOOP"
+      DTS:Description="For Loop Container"
+      DTS:DTSID="{E61435B7-FA19-4A49-A653-38B0368DA38B}"
+      DTS:EvalExpression="@numeric_suffix&lt;5"
+      DTS:ExecutableType="STOCK:FORLOOP"
+      DTS:InitExpression="@numeric_suffix=1"
+      DTS:LocaleID="-1"
+      DTS:MaxConcurrent="1"
+      DTS:ObjectName="For Loop Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\For Loop Container\Expression Task"
+          DTS:CreationName="Microsoft.ExpressionTask"
+          DTS:Description="Expression Task"
+          DTS:DTSID="{B71223F2-BFAB-47DB-BD17-D3BF576ADF6A}"
+          DTS:ExecutableType="Microsoft.ExpressionTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Expression Task"
+          DTS:TaskContact="Expression Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExpressionTask
+              Expression="@[User::filename] = &quot;data&quot;+ (DT_WSTR, 5)@[User::numeric_suffix]+&quot;.txt&quot;" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\For Loop Container\Load from txt to sql"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:DelayValidation="True"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{18FDBB62-8301-4E9D-9F2F-5DD0149329AA}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load from txt to sql"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\For Loop Container\Load from txt to sql\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\For Loop Container\Load from txt to sql\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Data Conversion.Inputs[Data Conversion Input].Columns[CustomerID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="CustomerID"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerID]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Data Conversion.Inputs[Data Conversion Input].Columns[Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Name"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Output].Columns[Name]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\Load from txt to sql\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\For Loop Container\Load from txt to sql\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Data Conversion.Outputs[Data Conversion Output].Columns[CustomerID]"
+                          dataType="ui4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Data Conversion.Outputs[Data Conversion Output].Columns[CustomerID]"
+                          name="CustomerID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Data Conversion.Outputs[Data Conversion Output].Columns[Name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Data Conversion.Outputs[Data Conversion Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Output].Columns[Name]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\For Loop Container\Load from txt to sql\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\For Loop Container\Load from txt to sql\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\For Loop Container\Load from txt to sql\Derived Column"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Derived Column"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\For Loop Container\Load from txt to sql\Derived Column.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\Load from txt to sql\Derived Column.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\For Loop Container\Load from txt to sql\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]"
+                          name="LoadDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\For Loop Container\Load from txt to sql\Derived Column.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\For Loop Container\Load from txt to sql\Derived Column.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\For Loop Container\Load from txt to sql\Flat File Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="1033"
+                  name="Flat File Destination"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\For Loop Container\Load from txt to sql\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\For Loop Container\Load from txt to sql\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Flat File Destination.Inputs[Flat File Destination Input].Columns[Flat File Source Error Output Column]"
+                          cachedCodepage="1252"
+                          cachedDataType="text"
+                          cachedName="Flat File Source Error Output Column"
+                          externalMetadataColumnId="Package\For Loop Container\Load from txt to sql\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Flat File Source Error Output Column]"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorCode]"
+                          cachedDataType="i4"
+                          cachedName="ErrorCode"
+                          externalMetadataColumnId="Package\For Loop Container\Load from txt to sql\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Flat File Destination.Inputs[Flat File Destination Input].Columns[ErrorColumn]"
+                          cachedDataType="i4"
+                          cachedName="ErrorColumn"
+                          externalMetadataColumnId="Package\For Loop Container\Load from txt to sql\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          name="Flat File Source Error Output Column" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorCode]"
+                          dataType="i4"
+                          name="ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ErrorColumn]"
+                          dataType="i4"
+                          name="ErrorColumn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\For Loop Container\Load from txt to sql\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\For Loop Container\Load from txt to sql\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          externalMetadataColumnId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerID]"
+                          length="50"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Output].Columns[CustomerID]"
+                          name="CustomerID"
+                          truncationRowDisposition="RedirectRow">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Output].Columns[Name]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="RedirectRow"
+                          externalMetadataColumnId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                          length="50"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Output].Columns[Name]"
+                          name="Name"
+                          truncationRowDisposition="RedirectRow">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[CustomerID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="CustomerID" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="Name" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\For Loop Container\Load from txt to sql\sql"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="sql"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Customers]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\For Loop Container\Load from txt to sql\sql.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[MOUSE-LAPTOP.ssis_8]"
+                      connectionManagerRefId="Package.ConnectionManagers[MOUSE-LAPTOP.ssis_8]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\For Loop Container\Load from txt to sql\sql.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\sql.Inputs[OLE DB Destination Input].Columns[LoadDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="LoadDate"
+                          externalMetadataColumnId="Package\For Loop Container\Load from txt to sql\sql.Inputs[OLE DB Destination Input].ExternalColumns[loaddate]"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Derived Column.Outputs[Derived Column Output].Columns[LoadDate]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\sql.Inputs[OLE DB Destination Input].Columns[CustomerID]"
+                          cachedDataType="ui4"
+                          cachedName="CustomerID"
+                          externalMetadataColumnId="Package\For Loop Container\Load from txt to sql\sql.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Data Conversion.Outputs[Data Conversion Output].Columns[CustomerID]" />
+                        <inputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\sql.Inputs[OLE DB Destination Input].Columns[Name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="Name"
+                          externalMetadataColumnId="Package\For Loop Container\Load from txt to sql\sql.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                          lineageId="Package\For Loop Container\Load from txt to sql\Data Conversion.Outputs[Data Conversion Output].Columns[Name]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Load from txt to sql\sql.Inputs[OLE DB Destination Input].ExternalColumns[id]"
+                          dataType="i4"
+                          name="id" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Load from txt to sql\sql.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="name" />
+                        <externalMetadataColumn
+                          refId="Package\For Loop Container\Load from txt to sql\sql.Inputs[OLE DB Destination Input].ExternalColumns[loaddate]"
+                          dataType="dbTimeStamp"
+                          name="loaddate" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\For Loop Container\Load from txt to sql\sql.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\For Loop Container\Load from txt to sql\sql.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\sql.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Load from txt to sql\sql.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\For Loop Container\Load from txt to sql\sql.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\For Loop Container\Load from txt to sql\sql.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\For Loop Container\Load from txt to sql.Paths[Data Conversion Output]"
+                  endId="Package\For Loop Container\Load from txt to sql\Derived Column.Inputs[Derived Column Input]"
+                  name="Data Conversion Output"
+                  startId="Package\For Loop Container\Load from txt to sql\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\For Loop Container\Load from txt to sql.Paths[Derived Column Output]"
+                  endId="Package\For Loop Container\Load from txt to sql\sql.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\For Loop Container\Load from txt to sql\Derived Column.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\For Loop Container\Load from txt to sql.Paths[Flat File Source Error Output]"
+                  endId="Package\For Loop Container\Load from txt to sql\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="Flat File Source Error Output"
+                  startId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Error Output]" />
+                <path
+                  refId="Package\For Loop Container\Load from txt to sql.Paths[Flat File Source Output]"
+                  endId="Package\For Loop Container\Load from txt to sql\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Flat File Source Output"
+                  startId="Package\For Loop Container\Load from txt to sql\Flat File Source.Outputs[Flat File Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\For Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{A86EA3C2-905D-4D8D-8095-B0F6EE5C58DE}"
+          DTS:EvalOp="1"
+          DTS:Expression="@[User::numeric_suffix]&lt;5"
+          DTS:From="Package\For Loop Container\Expression Task"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\For Loop Container\Load from txt to sql" />
+      </DTS:PrecedenceConstraints>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\For Loop Container\Expression Task"
+          TopLeft="120.333321039876,26.7017532290405" />
+        <NodeLayout
+          Size="169.333333333334,42.6666666666667"
+          Id="Package\For Loop Container\Load from txt to sql"
+          TopLeft="117.208321179574,120.754384214501" />
+        <EdgeLayout
+          Id="Package\For Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="200.770821109725,69.3684198957071">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.3859643187935"
+              Start="0,0"
+              End="0,43.8859643187935">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.8859643187935" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,13.9429821593967,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="392.666666666667,221.333333333334"
+          Size="392.666666666667,264"
+          Id="Package\For Loop Container"
+          TopLeft="154.3749930989,49.2631573538371" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\For Loop Container\Load from txt to sql">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\For Loop Container\Load from txt to sql\Flat File Source"
+          TopLeft="226.874989857898,21.8947366017054" />
+        <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\For Loop Container\Load from txt to sql\Data Conversion"
+          TopLeft="224.374989969656,95.789472632461" />
+        <EdgeLayout
+          Id="Package\For Loop Container\Load from txt to sql.Paths[Flat File Source Output]"
+          TopLeft="303.95832324711,64.5614032683721">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31.228069364089"
+              Start="0,0"
+              End="0,23.728069364089">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.728069364089" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\For Loop Container\Load from txt to sql\Derived Column"
+          TopLeft="226.249989885837,187.473682152102" />
+        <EdgeLayout
+          Id="Package\For Loop Container\Load from txt to sql.Paths[Data Conversion Output]"
+          TopLeft="303.979156594413,138.456139299128">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49.0175428529746"
+              Start="0,0"
+              End="0,41.5175428529746">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5175428529746" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="93.3333333333334,42.6666666666667"
+          Id="Package\For Loop Container\Load from txt to sql\sql"
+          TopLeft="257.499988488853,264.491225861501" />
+        <EdgeLayout
+          Id="Package\For Loop Container\Load from txt to sql.Paths[Derived Column Output]"
+          TopLeft="304.208322520679,230.140348818769">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.3508770427325"
+              Start="0,0"
+              End="0,26.8508770427325">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.8508770427325" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173.333333333334,42.6666666666667"
+          Id="Package\For Loop Container\Load from txt to sql\Flat File Destination"
+          TopLeft="424.37498102896,143.315788339297" />
+        <EdgeLayout
+          Id="Package\For Loop Container\Load from txt to sql.Paths[Flat File Source Error Output]"
+          TopLeft="328.652767635675,64.5614032683721">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="182.388880059951,78.7543850709252"
+              Start="0,0"
+              End="182.388880059951,71.2543850709252">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.9855693632768" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.9855693632768"
+                    Point2="0,31.9855693632768"
+                    Point3="4,31.9855693632768" />
+                  <mssgle:LineSegment
+                    End="178.388880059951,31.9855693632768" />
+                  <mssgle:CubicBezierSegment
+                    Point1="178.388880059951,31.9855693632768"
+                    Point2="182.388880059951,31.9855693632768"
+                    Point3="182.388880059951,35.9855693632768" />
+                  <mssgle:LineSegment
+                    End="182.388880059951,71.2543850709252" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="27.5680533112256,36.9855693632768,127.2527734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\For Loop Container\Load from txt to sql\sql">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
