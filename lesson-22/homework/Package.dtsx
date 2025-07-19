@@ -1,0 +1,2931 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/18/2025 4:15:33 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MOUSE-LAPTOP"
+  DTS:CreatorName="MOUSE-LAPTOP\Aslbek Rakhmatov"
+  DTS:DTSID="{792EF83E-658C-4E8D-B096-2EB759FF4893}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{D0F897D0-16B2-4D11-A524-F90E02D25D27}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{B8E779FC-C041-4771-A3F7-C8B2CDFF2C5D}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"Provider=Microsoft.ACE.OLEDB.12.0;Data Source="+ @[User::sourcepath] +";Extended Properties=\"Excel 12.0 XML;HDR=YES\";"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\SSIS_HMFiles\lesson-22\x_source.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{8967C3F5-A079-4AC2-BCD3-82B420DBE274}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::sourcepath]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\SSIS_HMFiles\lesson-22\x_source.xlsx">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="3"
+              DTS:TextQualified="True"
+              DTS:ObjectName="StudentID"
+              DTS:DTSID="{B38391AF-8942-4D71-8553-B3AB02140836}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="FirstName"
+              DTS:DTSID="{E1870897-F022-4001-8736-C72D8F3CCB57}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LastName"
+              DTS:DTSID="{DAF8729D-E216-452B-A740-A74673FE0957}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DateOfBirth"
+              DTS:DTSID="{61568C12-354C-4074-9FB8-DC324326DC6D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Gender"
+              DTS:DTSID="{9100C0D2-DE00-4772-8CA5-F1199ADD6CCB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Course"
+              DTS:DTSID="{66A37DE6-035D-4A73-B5DF-3C63165873BB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="7"
+              DTS:TextQualified="True"
+              DTS:ObjectName="RegistrationDate"
+              DTS:DTSID="{82215EB8-D330-4C11-9248-F0636966C6E5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Email"
+              DTS:DTSID="{91755E93-FED4-48EB-8384-E40462B83F04}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Mouse-Laptop.ssis_22]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{288E162A-54DA-4772-9B82-3C9A711765EC}"
+      DTS:ObjectName="Mouse-Laptop.ssis_22">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=Mouse-Laptop;Initial Catalog=ssis_22;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{288E162A-54DA-4772-9B82-3C9A711765EC}Mouse-Laptop.ssis_22;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{0C11A18F-FB68-49A2-9729-1B930109099C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="sourcepath">
+      <DTS:VariableValue
+        DTS:DataType="8">D:\SSIS_HMFiles\lesson-22\x_source.xlsx</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{A3D67573-254B-482F-8FC8-45E257C5B190}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{DEC9B056-3DD7-46C5-9748-710C9D73E283}"
+        DTS:ObjectName="{DEC9B056-3DD7-46C5-9748-710C9D73E283}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="D:\SSIS_HMFiles\lesson-22\" />
+            <FEFEProperty
+              FileSpec="*.*" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Cleaning Stage Table"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8CCC419C-5BFA-477C-8C6F-F57A2EC932E9}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Cleaning Stage Table"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{288E162A-54DA-4772-9B82-3C9A711765EC}"
+              SQLTask:SqlStatementSource="truncate table Stage_Students" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Data Flow Task(txt)"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{D29976DF-D950-4822-B013-C6757EA4874D}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task(txt)"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Add LoadDate"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate.Outputs[Derived Column Output].Columns[LoadDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate.Outputs[Derived Column Output].Columns[LoadDate]"
+                          name="LoadDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Inputs[Data Conversion Input].Columns[StudentID]"
+                          cachedDataType="i4"
+                          cachedName="StudentID"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[StudentID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Inputs[Data Conversion Input].Columns[FirstName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="FirstName"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Inputs[Data Conversion Input].Columns[LastName]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="LastName"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Inputs[Data Conversion Input].Columns[DateOfBirth]"
+                          cachedDataType="date"
+                          cachedName="DateOfBirth"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[DateOfBirth]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Inputs[Data Conversion Input].Columns[Gender]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Gender"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Inputs[Data Conversion Input].Columns[Course]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Course"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[Course]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Inputs[Data Conversion Input].Columns[RegistrationDate]"
+                          cachedDataType="date"
+                          cachedName="RegistrationDate"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[RegistrationDate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Inputs[Data Conversion Input].Columns[Email]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Email"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[Email]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[StudentID_]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[StudentID_]"
+                          name="StudentID_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[StudentID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_]"
+                          name="FirstName_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_]"
+                          name="LastName_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[DateOfBirth_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[DateOfBirth_]"
+                          name="DateOfBirth_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[DateOfBirth]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[Gender_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[Gender_]"
+                          name="Gender_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[Course_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[Course_]"
+                          name="Course_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[Course]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[RegistrationDate_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[RegistrationDate_]"
+                          name="RegistrationDate_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[RegistrationDate]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[Email_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[Email_]"
+                          name="Email_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[Email]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="ErrorLog"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[ErrorLog]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Mouse-Laptop.ssis_22]"
+                      connectionManagerRefId="Package.ConnectionManagers[Mouse-Laptop.ssis_22]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].Columns[LoadDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="LoadDate"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate.Outputs[Derived Column Output].Columns[LoadDate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                          cachedDataType="i4"
+                          cachedName="ErrorColumn"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].Columns[StudentID_]"
+                          cachedDataType="i4"
+                          cachedName="StudentID_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[StudentID]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[StudentID_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].Columns[FirstName_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="FirstName_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].Columns[LastName_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="LastName_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].Columns[DateOfBirth_]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="DateOfBirth_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[DateOfBirth_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].Columns[Gender_]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Gender_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[Gender_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].Columns[Course_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Course_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Course]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[Course_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].Columns[RegistrationDate_]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="RegistrationDate_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[RegistrationDate_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].Columns[Email_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Email_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[Email_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                          cachedDataType="i4"
+                          cachedName="ErrorCode"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[StudentID]"
+                          dataType="i4"
+                          name="StudentID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                          dataType="wstr"
+                          length="10"
+                          name="DateOfBirth" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="1"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Course]"
+                          dataType="wstr"
+                          length="50"
+                          name="Course" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="RegistrationDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          dataType="wstr"
+                          length="50"
+                          name="Email" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                          dataType="dbTimeStamp"
+                          name="LoadDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                          dataType="i4"
+                          name="ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                          dataType="i4"
+                          name="ErrorColumn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Flat File Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[StudentID]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StudentID]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[StudentID]"
+                          name="StudentID"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[FirstName]"
+                          name="FirstName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[LastName]"
+                          name="LastName"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[DateOfBirth]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DateOfBirth]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[DateOfBirth]"
+                          name="DateOfBirth"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[Gender]"
+                          name="Gender"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[Course]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Course]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[Course]"
+                          name="Course"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[RegistrationDate]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[RegistrationDate]"
+                          name="RegistrationDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[Email]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].Columns[Email]"
+                          name="Email"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[StudentID]"
+                          dataType="i4"
+                          name="StudentID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[DateOfBirth]"
+                          dataType="date"
+                          name="DateOfBirth" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="1"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Course]"
+                          dataType="wstr"
+                          length="50"
+                          name="Course" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[RegistrationDate]"
+                          dataType="date"
+                          name="RegistrationDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Email]"
+                          dataType="wstr"
+                          length="50"
+                          name="Email" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1252"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Stage_Students]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Mouse-Laptop.ssis_22]"
+                      connectionManagerRefId="Package.ConnectionManagers[Mouse-Laptop.ssis_22]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="RedirectRow"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoadDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="LoadDate"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate.Outputs[Derived Column Output].Columns[LoadDate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="FirstName_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastName_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="LastName_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StudentID_]"
+                          cachedDataType="i4"
+                          cachedName="StudentID_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[StudentID_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateOfBirth_]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="DateOfBirth_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[DateOfBirth_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Gender_]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Gender_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[Gender_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Course_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Course_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[Course_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RegistrationDate_]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="RegistrationDate_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[RegistrationDate_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Email_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Email_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output].Columns[Email_]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                          dataType="wstr"
+                          length="10"
+                          name="DateOfBirth" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="1"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course]"
+                          dataType="wstr"
+                          length="50"
+                          name="Course" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="RegistrationDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          dataType="wstr"
+                          length="50"
+                          name="Email" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                          dataType="dbTimeStamp"
+                          name="LoadDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task(txt).Paths[Data Conversion Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate.Inputs[Derived Column Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task(txt).Paths[Derived Column Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task(txt).Paths[Flat File Source Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Flat File Source Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source.Outputs[Flat File Source Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task(txt).Paths[OLE DB Destination Error Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Error Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination.Outputs[OLE DB Destination Error Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Data Flow Task(xlsx)"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{7EB1131D-EF6D-4AB0-9F6E-14857CF7741A}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task(xlsx)"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate"
+                  componentClassID="Microsoft.DerivedColumn"
+                  contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+                  name="Add LoadDate"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate.Inputs[Derived Column Input]"
+                      description="Input to the Derived Column Transformation"
+                      name="Derived Column Input">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate.Outputs[Derived Column Output]"
+                      description="Default Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      name="Derived Column Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate.Outputs[Derived Column Output].Columns[LoadDate]"
+                          dataType="dbTimeStamp"
+                          errorOrTruncationOperation="Computation"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate.Outputs[Derived Column Output].Columns[LoadDate]"
+                          name="LoadDate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Expression"
+                              name="Expression">[GETDATE]()</property>
+                            <property
+                              containsID="true"
+                              dataType="System.String"
+                              description="Derived Column Friendly Expression"
+                              expressionType="Notify"
+                              name="FriendlyExpression">GETDATE()</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate.Outputs[Derived Column Error Output]"
+                      description="Error Output of the Derived Column Transformation"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Derived Column Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate.Inputs[Derived Column Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion"
+                  componentClassID="Microsoft.DataConvert"
+                  contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+                  description="Data Conversion"
+                  name="Data Conversion"
+                  usesDispositions="true">
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Inputs[Data Conversion Input]"
+                      name="Data Conversion Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Inputs[Data Conversion Input].Columns[StudentID]"
+                          cachedDataType="r8"
+                          cachedName="StudentID"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[StudentID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Inputs[Data Conversion Input].Columns[FirstName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="FirstName"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[FirstName]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Inputs[Data Conversion Input].Columns[LastName]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="LastName"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[LastName]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Inputs[Data Conversion Input].Columns[DateOfBirth]"
+                          cachedDataType="date"
+                          cachedName="DateOfBirth"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[DateOfBirth]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Inputs[Data Conversion Input].Columns[Gender]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Gender"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[Gender]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Inputs[Data Conversion Input].Columns[Course]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Course"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[Course]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Inputs[Data Conversion Input].Columns[RegistrationDate ]"
+                          cachedDataType="date"
+                          cachedName="RegistrationDate "
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[RegistrationDate ]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Inputs[Data Conversion Input].Columns[Email]"
+                          cachedDataType="wstr"
+                          cachedLength="255"
+                          cachedName="Email"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[Email]" />
+                      </inputColumns>
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output]"
+                      exclusionGroup="1"
+                      name="Data Conversion Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[StudentID_]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[StudentID_]"
+                          name="StudentID_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[StudentID]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_]"
+                          name="FirstName_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[FirstName]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_]"
+                          name="LastName_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[LastName]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[DateOfBirth_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[DateOfBirth_]"
+                          name="DateOfBirth_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[DateOfBirth]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[Gender_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="1"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[Gender_]"
+                          name="Gender_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[Gender]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[Course_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[Course_]"
+                          name="Course_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[Course]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[RegistrationDate_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="10"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[RegistrationDate_]"
+                          name="RegistrationDate_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[RegistrationDate ]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[Email_]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[Email_]"
+                          name="Email_"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              containsID="true"
+                              dataType="System.Int32"
+                              description="Specifies the input column used as the source of data for the conversion."
+                              name="SourceInputColumnLineageID">#{Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[Email]}</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="Data Conversion Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Inputs[Data Conversion Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="ErrorLog"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[ErrorLog]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Mouse-Laptop.ssis_22]"
+                      connectionManagerRefId="Package.ConnectionManagers[Mouse-Laptop.ssis_22]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].Columns[LoadDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="LoadDate"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate.Outputs[Derived Column Output].Columns[LoadDate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].Columns[ErrorColumn]"
+                          cachedDataType="i4"
+                          cachedName="ErrorColumn"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].Columns[StudentID_]"
+                          cachedDataType="i4"
+                          cachedName="StudentID_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[StudentID]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[StudentID_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].Columns[FirstName_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="FirstName_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].Columns[LastName_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="LastName_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].Columns[DateOfBirth_]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="DateOfBirth_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[DateOfBirth_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].Columns[Gender_]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Gender_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[Gender_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].Columns[Course_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Course_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Course]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[Course_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].Columns[RegistrationDate_]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="RegistrationDate_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[RegistrationDate_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].Columns[Email_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Email_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[Email_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].Columns[ErrorCode]"
+                          cachedDataType="i4"
+                          cachedName="ErrorCode"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[StudentID]"
+                          dataType="i4"
+                          name="StudentID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                          dataType="wstr"
+                          length="10"
+                          name="DateOfBirth" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="1"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Course]"
+                          dataType="wstr"
+                          length="50"
+                          name="Course" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="RegistrationDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          dataType="wstr"
+                          length="50"
+                          name="Email" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                          dataType="dbTimeStamp"
+                          name="LoadDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorCode]"
+                          dataType="i4"
+                          name="ErrorCode" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input].ExternalColumns[ErrorColumn]"
+                          dataType="i4"
+                          name="ErrorColumn" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source"
+                  componentClassID="Microsoft.ExcelSource"
+                  contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Excel Source"
+                  name="Excel Source"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">Sheet1$</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mapping from parameters in the SQL command to variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output]"
+                      name="Excel Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[StudentID]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[StudentID]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[StudentID]"
+                          name="StudentID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[FirstName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[FirstName]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[FirstName]"
+                          name="FirstName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[LastName]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[LastName]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[LastName]"
+                          name="LastName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[DateOfBirth]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[DateOfBirth]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[DateOfBirth]"
+                          name="DateOfBirth"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[Gender]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[Gender]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[Gender]"
+                          name="Gender"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[Course]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[Course]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[Course]"
+                          name="Course"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[RegistrationDate ]"
+                          dataType="date"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[RegistrationDate ]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[RegistrationDate ]"
+                          name="RegistrationDate "
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[Email]"
+                          dataType="wstr"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[Email]"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].Columns[Email]"
+                          name="Email"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[StudentID]"
+                          dataType="r8"
+                          name="StudentID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="255"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="255"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[DateOfBirth]"
+                          dataType="date"
+                          name="DateOfBirth" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="255"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[Course]"
+                          dataType="wstr"
+                          length="255"
+                          name="Course" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[RegistrationDate ]"
+                          dataType="date"
+                          name="RegistrationDate " />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output].ExternalColumns[Email]"
+                          dataType="wstr"
+                          length="255"
+                          name="Email" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output]"
+                      isErrorOut="true"
+                      name="Excel Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[StudentID]"
+                          dataType="r8"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[StudentID]"
+                          name="StudentID" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[FirstName]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[FirstName]"
+                          name="FirstName" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[LastName]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[LastName]"
+                          name="LastName" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[DateOfBirth]"
+                          dataType="date"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[DateOfBirth]"
+                          name="DateOfBirth" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[Gender]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[Gender]"
+                          name="Gender" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[Course]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[Course]"
+                          name="Course" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[RegistrationDate ]"
+                          dataType="date"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[RegistrationDate ]"
+                          name="RegistrationDate " />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[Email]"
+                          dataType="wstr"
+                          length="255"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[Email]"
+                          name="Email" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="OLE DB Destination"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[Stage_Students]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Mouse-Laptop.ssis_22]"
+                      connectionManagerRefId="Package.ConnectionManagers[Mouse-Laptop.ssis_22]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="RedirectRow"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[FirstName_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="FirstName_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[FirstName_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LastName_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="LastName_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[LastName_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[DateOfBirth_]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="DateOfBirth_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[DateOfBirth_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Gender_]"
+                          cachedDataType="wstr"
+                          cachedLength="1"
+                          cachedName="Gender_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[Gender_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Course_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Course_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[Course_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[RegistrationDate_]"
+                          cachedDataType="wstr"
+                          cachedLength="10"
+                          cachedName="RegistrationDate_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[RegistrationDate_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Email_]"
+                          cachedDataType="wstr"
+                          cachedLength="50"
+                          cachedName="Email_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[Email_]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[LoadDate]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="LoadDate"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate.Outputs[Derived Column Output].Columns[LoadDate]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[StudentID_]"
+                          cachedDataType="i4"
+                          cachedName="StudentID_"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output].Columns[StudentID_]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[FirstName]"
+                          dataType="wstr"
+                          length="50"
+                          name="FirstName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LastName]"
+                          dataType="wstr"
+                          length="50"
+                          name="LastName" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfBirth]"
+                          dataType="wstr"
+                          length="10"
+                          name="DateOfBirth" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Gender]"
+                          dataType="wstr"
+                          length="1"
+                          name="Gender" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Course]"
+                          dataType="wstr"
+                          length="50"
+                          name="Course" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[RegistrationDate]"
+                          dataType="wstr"
+                          length="10"
+                          name="RegistrationDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Email]"
+                          dataType="wstr"
+                          length="50"
+                          name="Email" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[LoadDate]"
+                          dataType="dbTimeStamp"
+                          name="LoadDate" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                          dataType="i4"
+                          name="ID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task(xlsx).Paths[Data Conversion Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate.Inputs[Derived Column Input]"
+                  name="Data Conversion Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Outputs[Data Conversion Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task(xlsx).Paths[Derived Column Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="Derived Column Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate.Outputs[Derived Column Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task(xlsx).Paths[Excel Source Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Excel Source Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source.Outputs[Excel Source Output]" />
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task(xlsx).Paths[OLE DB Destination Error Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Error Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination.Outputs[OLE DB Destination Error Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Merge(txt)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{8F33BB11-5BB3-4220-B63B-5642333CAC59}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Merge(txt)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{288E162A-54DA-4772-9B82-3C9A711765EC}"
+              SQLTask:SqlStatementSource="Merge ssis_22..Students as Target&#xA;Using ssis_22..Stage_Students as Source&#xA;on Target.StudentID = Source.ID&#xA;when not matched then&#xA;insert (StudentID, FirstName, LastName, DateOfBirth, Gender, Course, RegistrationDate, Email, LoadDate) Values (Source.ID, Source.FirstName, Source.LastName, Source.DateOfBirth, Source.Gender, Source.Course, Source.RegistrationDate, Source.Email, Source.LoadDate)&#xA;when matched and Target.Course != Source.Course then&#xA;update set Target.Course = Source.Course, Target.LoadDate = getdate();" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Merge(xlsx)"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{7924c104-ae44-42fc-80ff-f8de57dd047a}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Merge(xlsx)"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{288E162A-54DA-4772-9B82-3C9A711765EC}"
+              SQLTask:SqlStatementSource="Merge ssis_22..Students as Target&#xA;Using ssis_22..Stage_Students as Source&#xA;on Target.StudentID = Source.ID&#xA;when not matched then&#xA;insert (StudentID, FirstName, LastName, DateOfBirth, Gender, Course, RegistrationDate, Email, LoadDate) Values (Source.ID, Source.FirstName, Source.LastName, Source.DateOfBirth, Source.Gender, Source.Course, Source.RegistrationDate, Source.Email, Source.LoadDate)&#xA;when matched and Target.Course != Source.Course then&#xA;update set Target.Course = Source.Course, Target.LoadDate = getdate();" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{60023BFC-A1F1-466A-905B-3F47C67005E1}"
+          DTS:EvalOp="1"
+          DTS:Expression="RIGHT(@[User::sourcepath],4) == &quot;.txt&quot;"
+          DTS:From="Package\Foreach Loop Container\Cleaning Stage Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\Data Flow Task(txt)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{FB64EE53-D6C7-4574-8E18-EFA4037859AD}"
+          DTS:EvalOp="1"
+          DTS:Expression="RIGHT(@[User::sourcepath],5) == &quot;.xlsx&quot;"
+          DTS:From="Package\Foreach Loop Container\Cleaning Stage Table"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container\Data Flow Task(xlsx)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          DTS:CreationName=""
+          DTS:DTSID="{C4811B5E-89A2-48C7-932A-2B30DA71785B}"
+          DTS:From="Package\Foreach Loop Container\Data Flow Task(xlsx)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 2"
+          DTS:To="Package\Foreach Loop Container\Merge(xlsx)" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 3]"
+          DTS:CreationName=""
+          DTS:DTSID="{CCFC75DE-1BD7-4E25-8FDF-C810329D4E29}"
+          DTS:From="Package\Foreach Loop Container\Data Flow Task(txt)"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 3"
+          DTS:To="Package\Foreach Loop Container\Merge(txt)" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{56B73FE3-768D-43DB-B189-FBB2AC9DA51B}"
+          DTS:ObjectName="{56B73FE3-768D-43DB-B189-FBB2AC9DA51B}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::sourcepath" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{8F08F1CF-011C-495F-BAE0-32FA4F3861DC}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="The propagate property of the event"
+          DTS:DTSID="{0F53B814-C616-4046-AB29-EABC7E468D7C}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Execute SQL Task"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{17A51608-564F-4B66-A876-B8253BF89D99}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Execute SQL Task"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{288E162A-54DA-4772-9B82-3C9A711765EC}"
+              SQLTask:SqlStatementSource="INSERT INTO dbo.SSISLog (Event, Source, Message, LogDate)&#xA;VALUES ('OnError', ?, &#xA;        'Error processing file: ' + ? + '. Error: ' + ?, &#xA;        GETDATE())" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="0"
+                SQLTask:DtsVariableName="System::PackageName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="50" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="1"
+                SQLTask:DtsVariableName="User::sourcepath"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="50" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="System::ErrorDescription"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="500" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="182.666666666667,42.6666666666667"
+          Id="Package\Foreach Loop Container\Cleaning Stage Table"
+          TopLeft="134.208316485709,11.6666659529795" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Foreach Loop Container\Data Flow Task(txt)"
+          TopLeft="6.08332221334203,116.175436808517" />
+        <NodeLayout
+          Size="178.666666666667,42.6666666666667"
+          Id="Package\Foreach Loop Container\Data Flow Task(xlsx)"
+          TopLeft="249.833311316869,116.070173695697" />
+        <NodeLayout
+          Size="128,42.6666666666667"
+          Id="Package\Foreach Loop Container\Merge(txt)"
+          TopLeft="27.3749990221113,210.736839505939" />
+        <NodeLayout
+          Size="136,42.6666666666667"
+          Id="Package\Foreach Loop Container\Merge(xlsx)"
+          TopLeft="267.374980805442,207.385962320469" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="196.430538707931,54.3333326196462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-104.347216494589,61.8421041888708"
+              Start="0,0"
+              End="-104.347216494589,54.3421041888708">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0590291937537" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0590291937537"
+                    Point2="0,25.0590291937537"
+                    Point3="-4,25.0590291937537" />
+                  <mssgle:LineSegment
+                    End="-100.347216494589,25.0590291937537" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-100.347216494589,25.0590291937537"
+                    Point2="-104.347216494589,25.0590291937537"
+                    Point3="-104.347216494589,29.0590291937537" />
+                  <mssgle:LineSegment
+                    End="-104.347216494589,54.3421041888708" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-60.1736082472946,30.0590291937537,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="254.652760930153,54.3333326196462">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="84.5138837200489,61.7368410760511"
+              Start="0,0"
+              End="84.5138837200489,54.2368410760511">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.0163755445648" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.0163755445648"
+                    Point2="0,25.0163755445648"
+                    Point3="4,25.0163755445648" />
+                  <mssgle:LineSegment
+                    End="80.5138837200489,25.0163755445648" />
+                  <mssgle:CubicBezierSegment
+                    Point1="80.5138837200489,25.0163755445648"
+                    Point2="84.5138837200489,25.0163755445648"
+                    Point3="84.5138837200489,29.0163755445648" />
+                  <mssgle:LineSegment
+                    End="84.5138837200489,54.2368410760511" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="34.2569418600245,30.0163755445648,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 2]"
+          TopLeft="337.270812727822,158.736840362364">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48.6491219581054"
+              Start="0,0"
+              End="0,41.1491219581054">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.1491219581054" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 3]"
+          TopLeft="91.7291606177267,158.842103475184">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.8947360307553"
+              Start="0,0"
+              End="0,44.3947360307553">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.3947360307553" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="434,314"
+          Size="434,357.333333333334"
+          Id="Package\Foreach Loop Container"
+          TopLeft="161.874992763624,4.78947363162305" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\Data Flow Task(txt)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Foreach Loop Container\Data Flow Task(txt)\Flat File Source"
+          TopLeft="259.999988377095,20.5263155640988" />
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination"
+          TopLeft="253.749988656491,275.052628558923" />
+        <NodeLayout
+          Size="148,42.6666666666667"
+          Id="Package\Foreach Loop Container\Data Flow Task(txt)\Add LoadDate"
+          TopLeft="261.249988321216,166.2631560692" />
+        <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\Foreach Loop Container\Data Flow Task(txt)\Data Conversion"
+          TopLeft="253.749988656491,99.8947357452808" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task(txt).Paths[Flat File Source Output]"
+          TopLeft="335.208321850126,63.1929822307655">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.7017535145154"
+              Start="0,0"
+              End="0,29.2017535145154">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.2017535145154" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task(txt).Paths[Data Conversion Output]"
+          TopLeft="334.16665515552,142.561402411947">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,23.7017536572528"
+              Start="0,0"
+              End="0,16.2017536572528">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.2017536572528" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task(txt).Paths[Derived Column Output]"
+          TopLeft="338.16665515552,208.929822735867">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66.1228058230565"
+              Start="0,0"
+              End="0,58.6228058230565">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.6228058230565" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121.333333333334,42.6666666666667"
+          Id="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog"
+          TopLeft="283.124987343327,379.508767858052" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task(txt).Paths[OLE DB Destination Error Output]"
+          TopLeft="342.437487999909,317.71929522559">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.7894726324615"
+              Start="0,0"
+              End="0,54.2894726324615">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.2894726324615" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-73.20890625,21.4279394412308,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Data Flow Task(txt)\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\Data Flow Task(xlsx)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination"
+          TopLeft="380.833321983616,346.666656335195" />
+        <NodeLayout
+          Size="158.666666666667,42.6666666666667"
+          Id="Package\Foreach Loop Container\Data Flow Task(xlsx)\Data Conversion"
+          TopLeft="387.4999884516,139.999995827675" />
+        <NodeLayout
+          Size="148,42.6666666666667"
+          Id="Package\Foreach Loop Container\Data Flow Task(xlsx)\Add LoadDate"
+          TopLeft="394.166654919585,234.999992996454" />
+        <NodeLayout
+          Size="142.666666666667,42.6666666666667"
+          Id="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source"
+          TopLeft="396.16665485998,44.9999986588955" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task(xlsx).Paths[Excel Source Output]"
+          TopLeft="467.166654989124,87.6666653255622">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.3333305021128"
+              Start="0,0"
+              End="0,44.8333305021128">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.8333305021128" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task(xlsx).Paths[Derived Column Output]"
+          TopLeft="468.166655118267,277.666659663121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68.9999966720741"
+              Start="0,0"
+              End="0,61.4999966720741">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61.4999966720741" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task(xlsx).Paths[Data Conversion Output]"
+          TopLeft="467.499988352259,182.666662494342">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.3333305021127"
+              Start="0,0"
+              End="0,44.8333305021127">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.8333305021127" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121.333333333334,42.6666666666667"
+          Id="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog"
+          TopLeft="413.833321000139,450.333322972059" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task(xlsx).Paths[OLE DB Destination Error Output]"
+          TopLeft="471.333321491878,389.333323001862">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.9999999701977"
+              Start="0,0"
+              End="0,53.4999999701977">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.4999999701977" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-73.20890625,21.0332031100989,146.4178125,11.43359375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Data Flow Task(xlsx)\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Data Flow Task(xlsx)\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Data Flow Task(txt)\ErrorLog">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Data Flow Task(xlsx)\ErrorLog">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <DtsEventHandler
+    design-time-name="Package.EventHandlers[OnError]">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="168,42.6666666666667"
+          Id="Package.EventHandlers[OnError]\Execute SQL Task"
+          TopLeft="466.999986082316,98.9999970495702" />
+      </GraphLayout>
+    </LayoutInfo>
+  </DtsEventHandler>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
